@@ -1,7 +1,6 @@
 import { useDebounce } from '@/ui/utils';
 import React, { useState } from 'react';
 import Checkbox from '../Checkbox';
-import { LABEL } from './styles';
 
 type Props = {
   task: Task;
@@ -18,7 +17,7 @@ const TaskItem: React.FC<Props> = React.memo(({ task, onChange }) => {
   };
 
   return (
-    <label css={LABEL}>
+    <label className="flex items-center my-1 mx-0">
       <Checkbox checked={checked} onChange={handleChange} name={`${task.title} check`} />
       {task.title}
     </label>

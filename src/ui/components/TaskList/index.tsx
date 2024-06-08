@@ -1,6 +1,5 @@
 import React from 'react';
 import TaskItem from '../TaskItem';
-import { LIST } from './styles';
 
 type Props = {
   tasks: Array<Task>;
@@ -9,7 +8,7 @@ type Props = {
 
 const TaskList: React.FC<Props> = ({ tasks, onEditTask }) => {
   return (
-    <ul css={LIST}>
+    <ul className="list-none m-0 p-0">
       {tasks.map((task: Task) => (
         <li key={task.id}>
           <TaskItem task={task} onChange={onEditTask} />

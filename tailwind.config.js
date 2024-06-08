@@ -1,10 +1,26 @@
+const { keyframes } = require('@emotion/react');
 const plugin = require('tailwindcss/plugin');
 
 module.exports = {
   purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
   content: ['./dist/*.html'],
   theme: {
-    extend: {}
+    extend: {
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: 0 },
+          '100%': { opacity: 1 }
+        },
+        fadeOut: {
+          '0%': { opacity: 1 },
+          '100%': { opacity: 0 }
+        }
+      },
+      animation: {
+        'fade-in': '1s fadeIn 0s ease both',
+        'fade-out': '1s fadeOut 4s ease both'
+      }
+    }
   },
   variants: {
     extend: {}

@@ -21,21 +21,3 @@
   font-family: 'Custom Sans Light';
   src: url(./assets/fonts/CustomSans/CustomSans-Light.woff2);
 }
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes fadeOut {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
