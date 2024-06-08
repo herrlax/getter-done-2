@@ -41,7 +41,6 @@ export const BUTTON = (colors: ColorTheme, kind: ButtonVariant, disabled?: boole
     padding: '2px 12px',
     color: colors.offWhite,
     fontSize: '12px',
-    fontFamily: 'Nunito Sans Bold',
     transition: 'background-color 100ms ease-in',
     backgroundColor: colorMap[kind].idle.background,
     opacity: disabled ? 0.3 : 1,

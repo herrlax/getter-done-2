@@ -4,3 +4,4 @@ build
 dist
 yarn-error.log
 tasks.json
+src/ui/assets/fonts/CustomSans

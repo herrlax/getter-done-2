@@ -1,0 +1,41 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@font-face {
+  font-family: 'Custom Sans Black';
+  src: url(./assets/fonts/CustomSans/CustomSans-Black.woff2);
+}
+
+@font-face {
+  font-family: 'Custom Sans Bold';
+  src: url(./assets/fonts/CustomSans/CustomSans-Bold.woff2);
+}
+
+@font-face {
+  font-family: 'Custom Sans Regular';
+  src: url(./assets/fonts/CustomSans/CustomSans-Regular.woff2);
+}
+
+@font-face {
+  font-family: 'Custom Sans Light';
+  src: url(./assets/fonts/CustomSans/CustomSans-Light.woff2);
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

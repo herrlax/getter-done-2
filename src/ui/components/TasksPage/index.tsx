@@ -27,8 +27,9 @@ const TasksPage = () => {
 
   return (
     <React.Fragment>
-      <div css={WRAP}>
-        <h1>Howdy 👋</h1>
+      <div>
+        <h1>Good day to you 👋</h1>
+        <span>It's time to get things done. Let's go!</span>
         {!!data?.length && showProgress && (
           <div css={PROGRESS_WRAP}>
             <Progress progress={numberOfCompleted / data.length} />
