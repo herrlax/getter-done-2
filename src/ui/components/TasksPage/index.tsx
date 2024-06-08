@@ -29,9 +29,9 @@ const TasksPage = () => {
     <React.Fragment>
       <div>
         <h1>Good day to you 👋</h1>
-        <span>It's time to get things done. Let's go!</span>
+        <p className="m-0">It's time to get things done. Let's go!</p>
         {!!data?.length && showProgress && (
-          <div css={PROGRESS_WRAP}>
+          <div className="flex items-center">
             <Progress progress={numberOfCompleted / data.length} />
             <span css={PROGRESS_TEXT}>
               {numberOfCompleted === data.length ? (

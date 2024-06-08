@@ -18,7 +18,7 @@ const TaskDialog: React.FC<Props> = ({ onDismiss, onAddTask }) => {
   const handleAddTask = () => {
     onAddTask({
       id: new Date().toISOString(),
-      date: new Date(),
+      date: new Date().toISOString(),
       title: taskTitle,
       comments: [],
       done: false

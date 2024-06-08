@@ -4,7 +4,7 @@ import TaskItem from '.';
 
 const mockTask = {
   id: '',
-  date: new Date(),
+  date: new Date().toISOString(),
   title: '',
   comments: [],
   done: false

@@ -4,7 +4,7 @@ import TasksList from '.';
 
 const mockTask: Task = {
   id: '',
-  date: new Date(),
+  date: new Date().toISOString(),
   title: '',
   comments: [] as string[],
   done: false

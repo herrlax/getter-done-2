@@ -1,6 +1,6 @@
 type Task = {
   id: string;
-  date: Date;
+  date: string;
   title: string;
   comments: Array<string>;
   done: boolean;
