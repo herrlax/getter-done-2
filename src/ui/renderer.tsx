@@ -2,14 +2,15 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import './index.css';
 import TasksPage from './components/TasksPage';
-import Providers from './components/Providers';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 const container = document.getElementById('root');
+const queryClient = new QueryClient();
 
 if (container) {
   createRoot(container).render(
-    <Providers>
+    <QueryClientProvider client={queryClient}>
       <TasksPage />
-    </Providers>
+    </QueryClientProvider>
   );
 }

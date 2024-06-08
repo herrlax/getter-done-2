@@ -1,7 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import TasksList from '.';
-import { Task, TasksProvider } from '@/ui/context/tasks';
 
 const mockTask: Task = {
   id: '',
@@ -13,10 +12,6 @@ const mockTask: Task = {
 
 describe('<TasksList />', function () {
   it('renders TasksList', () => {
-    render(
-      <TasksProvider data={[mockTask]}>
-        <TasksList />
-      </TasksProvider>
-    );
+    render(<TasksList onEditTask={jest.fn()} tasks={[]} />);
   });
 });

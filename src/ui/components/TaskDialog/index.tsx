@@ -1,4 +1,3 @@
-import { Task } from '@/ui/context/tasks';
 import { DialogContent, DialogOverlay } from '@reach/dialog';
 import '@reach/dialog/styles.css';
 import React, { useState } from 'react';

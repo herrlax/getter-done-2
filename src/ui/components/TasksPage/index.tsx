@@ -1,19 +1,18 @@
-import { useTasksAction, useTasksState } from '@/ui/context/tasks';
 import React, { useEffect, useMemo, useState } from 'react';
 import Button from '../Button';
 import Progress from '../Progress';
 import TaskDialog from '../TaskDialog';
 import TaskList from '../TaskList';
 import { PROGRESS_TEXT, PROGRESS_WRAP, TASK_WRAP, WRAP } from './styles';
+import { useGetTasks, useUpdateTask } from '@/ui/api/tasks';
+import { useAddTask } from '@/ui/api/tasks';
 
 const TasksPage = () => {
   const [showProgress, setShowProgress] = useState(true);
   const [taskDialogIsOpen, setTaskDialogIsOpen] = useState(false);
-  const { addTask } = useTasksAction();
-  const {
-    data,
-    addTask: { isLoading: addTaskIsLoading }
-  } = useTasksState();
+  const { data } = useGetTasks();
+  const { mutate: addTask, isPending: addTaskIsPending } = useAddTask();
+  const { mutate: updateTask, isPending: updateTaskIsPending } = useUpdateTask();
 
   useEffect(() => {
     setTimeout(() => {
@@ -21,21 +20,24 @@ const TasksPage = () => {
     }, 5000);
   }, []);
 
-  const noCompleted = useMemo(() => data.filter((t) => t.done).length, [data]);
+  const numberOfCompleted = useMemo(
+    () => data?.filter((t) => t.done).length || 0,
+    [data]
+  );
 
   return (
     <React.Fragment>
       <div css={WRAP}>
         <h1>Howdy 👋</h1>
-        {data.length > 0 && showProgress && (
+        {!!data?.length && showProgress && (
           <div css={PROGRESS_WRAP}>
-            <Progress progress={noCompleted / data.length} />
+            <Progress progress={numberOfCompleted / data.length} />
             <span css={PROGRESS_TEXT}>
-              {noCompleted === data.length ? (
+              {numberOfCompleted === data.length ? (
                 <React.Fragment>All your tasks are done. Nice job 👍</React.Fragment>
               ) : (
                 <span>
-                  {noCompleted} of {data.length} tasks are done. Keep it up!
+                  {numberOfCompleted} of {data.length} tasks are done. Keep it up!
                 </span>
               )}
             </span>
@@ -46,11 +48,11 @@ const TasksPage = () => {
             <Button
               onClick={() => setTaskDialogIsOpen(true)}
               variant="secondary"
-              disabled={addTaskIsLoading}
+              disabled={addTaskIsPending || updateTaskIsPending}
             >
               Add task
             </Button>
-            <TaskList />
+            {data && <TaskList tasks={data} onEditTask={updateTask} />}
           </div>
         )}
       </div>

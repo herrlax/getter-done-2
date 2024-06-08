@@ -1,22 +1,16 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import TasksPage from '.';
-import { Task, TasksProvider } from '@/ui/context/tasks';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
-const mockTask: Task = {
-  id: '',
-  date: new Date(),
-  title: '',
-  comments: [] as string[],
-  done: false
-};
+const queryClient = new QueryClient();
 
 describe('<TasksPage />', function () {
   it('renders TasksPage', () => {
     render(
-      <TasksProvider data={[mockTask]}>
+      <QueryClientProvider client={queryClient}>
         <TasksPage />
-      </TasksProvider>
+      </QueryClientProvider>
     );
   });
 });

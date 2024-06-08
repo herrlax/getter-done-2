@@ -1,12 +1,11 @@
 import { useDebounce } from '@/ui/utils';
 import React, { useState } from 'react';
-import { Task } from '../../context/tasks';
 import Checkbox from '../Checkbox';
 import { LABEL } from './styles';
 
 type Props = {
   task: Task;
-  onChange: (task: Task) => void;
+  onChange: (task: Partial<Task>) => void;
 };
 
 const TaskItem: React.FC<Props> = React.memo(({ task, onChange }) => {
@@ -14,7 +13,7 @@ const TaskItem: React.FC<Props> = React.memo(({ task, onChange }) => {
   const debounce = useDebounce();
 
   const handleChange = (value: boolean) => {
-    debounce(() => onChange({ ...task, done: value }), 1000);
+    debounce(() => onChange({ id: task.id, done: value }), 1000);
     setChecked(value);
   };
 
