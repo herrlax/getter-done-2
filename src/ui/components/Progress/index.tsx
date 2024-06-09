@@ -1,7 +1,7 @@
 import React from 'react';
 
 type Props = {
-  progress: number;
+  progress: number; // progress in percentage 0 - 100
 };
 
 const Progress: React.FC<Props> = ({ progress }) => {
@@ -19,10 +19,10 @@ const Progress: React.FC<Props> = ({ progress }) => {
           fill="none"
           strokeWidth="3"
           className="stroke-moss animate-fill-circle [stroke-linecap:round]"
-          style={{ '--percentage': progress * 100 } as any}
+          style={{ '--percentage': progress } as any}
         />
       </svg>
-      {progress === 1 && (
+      {progress === 100 ? (
         <svg
           width="32px"
           height="16px"
@@ -38,11 +38,8 @@ const Progress: React.FC<Props> = ({ progress }) => {
             style={{ '--percentage': 100 } as any}
           />
         </svg>
-      )}
-      {progress !== 1 && (
-        <span className="animate-fade-in-late text-xs">
-          {Math.round(progress * 100)}%
-        </span>
+      ) : (
+        <span className="animate-fade-in-late text-xs">{Math.round(progress)}%</span>
       )}
     </div>
   );

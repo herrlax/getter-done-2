@@ -24,20 +24,25 @@ const TasksPage = () => {
     [data]
   );
 
+  const percentageDone = data?.length
+    ? Math.round((numberOfCompleted / data.length) * 100)
+    : 0;
+
   return (
     <React.Fragment>
       <div>
         <h1>Good day to you 👋</h1>
         <p className="mt-0">It's time to get things done. Let's go!</p>
         {!!data?.length && showProgress && (
-          <div className="flex items-center animate-fade-out absolute">
-            <Progress progress={numberOfCompleted / data.length} />
+          <div className="flex items-center absolute gap-3 animate-fade-out">
+            <Progress progress={percentageDone} />
             <span className="animate-fade-in">
               {numberOfCompleted === data.length ? (
                 <React.Fragment>All your tasks are done. Nice job 👍</React.Fragment>
               ) : (
                 <span>
-                  {numberOfCompleted} of {data.length} tasks are done. Keep it up!
+                  {numberOfCompleted} of {data.length} tasks are done. That's{' '}
+                  {percentageDone}% Keep it up!
                 </span>
               )}
             </span>
