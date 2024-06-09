@@ -1,5 +1,4 @@
 import React from 'react';
-import { CHECKBOX_WRAP } from './styles';
 
 type Props = {
   checked?: boolean;
@@ -9,9 +8,9 @@ type Props = {
 
 const Checkbox: React.FC<Props> = React.memo(({ checked, onChange, name }) => {
   return (
-    <div className="w-4 h-4 relative mr-1 focus:outline-none focus:shadow-none">
+    <div className="w-4 h-4 relative mr-1">
       <input
-        className="opacity-0"
+        className="opacity-0 [&:focus+span]:border-day"
         data-reach-custom-checkbox-input
         type="checkbox"
         value={name}
@@ -22,11 +21,11 @@ const Checkbox: React.FC<Props> = React.memo(({ checked, onChange, name }) => {
         }}
       />
       <span
-        className={`absolute left-0 top-0 rounded-[50%] border border-slate-700 ${
-          checked ? 'bg-green-700' : 'bg-gray-300'
-        } cursor-pointer h-3 w-3 transition-colors after:absolute after:left-[2px] after:top-[2px] after:content-[''] ${
-          checked ? 'after:opacity-1' : 'after:opacity-0'
-        } after:border-l-[2px] after:border-b-[2px] after:border-white after:h-1 after:w-2 after:transition-opacity after:-rotate-45`}
+        className={`h-3 w-3 absolute left-0 top-0 border border-teal rounded-[50%] cursor-pointer transition-all 
+        ${checked ? 'bg-teal' : 'bg-night'} 
+        hover:border-day
+        after:absolute after:left-[2px] after:top-[2px] after:content-[''] after:border-l-[2px] after:border-b-[2px] after:border-white after:h-1 after:w-2 after:transition-all after:-rotate-45 
+        ${checked ? 'after:opacity-1' : 'after:opacity-0'}`}
       />
     </div>
   );

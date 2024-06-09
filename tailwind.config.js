@@ -19,6 +19,18 @@ module.exports = {
       animation: {
         'fade-in': '1s fadeIn 0s ease both',
         'fade-out': '1s fadeOut 4s ease both'
+      },
+      colors: {
+        day: '#f5f6f7',
+        night: '#1c1e21',
+        teal: '#0a7e85',
+        ocean: '#004484'
+      },
+      backgroundColor: {
+        day: '#f5f6f7',
+        night: '#1c1e21',
+        teal: '#0a7e85',
+        ocean: '#004484'
       }
     }
   },
