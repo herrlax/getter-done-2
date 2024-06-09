@@ -6,35 +6,35 @@ const MOCK_TASKS = {
     date: '2024-06-08T08:21:55.747Z',
     title: 'Group tasks by date',
     comments: [],
-    done: false
+    done: true
   },
   '2024-06-08T08:22:03.604Z': {
     id: '2024-06-08T08:22:03.604Z',
     date: '2024-06-08T08:22:03.604Z',
     title: 'Add section for completed tasks',
     comments: [],
-    done: false
+    done: true
   },
   '2024-06-08T08:22:20.203Z': {
     id: '2024-06-08T08:22:20.203Z',
     date: '2024-06-08T08:22:20.203Z',
     title: 'Enable auto-removal of completed tasks',
     comments: [],
-    done: false
+    done: true
   },
   '2024-06-08T08:22:28.508Z': {
     id: '2024-06-08T08:22:28.508Z',
     date: '2024-06-08T08:22:28.508Z',
     title: 'Replace styled components with tailwind',
     comments: [],
-    done: false
+    done: true
   },
   '2024-06-08T08:22:36.514Z': {
     id: '2024-06-08T08:22:36.514Z',
     date: '2024-06-08T08:22:36.514Z',
     title: 'Style like Kry brand',
     comments: [],
-    done: false
+    done: true
   },
   '2024-06-08T08:22:56.164Z': {
     id: '2024-06-08T08:22:56.164Z',
